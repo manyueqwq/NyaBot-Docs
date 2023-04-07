@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'NyaBot',
   tagline: '一个基于Go语言的聊天机器人框架',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/logo.jpg',
 
   // Set the production url of your site here
   url: 'https://nyabot.elyart.org',
@@ -55,12 +55,13 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      image: 'img/logo.jpg',
       navbar: {
         title: 'NyaBot',
         logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          alt: 'NyaBot Logo',
+          src: 'img/logo.jpg',
+          className: 'header-logo',
         },
         items: [
           {
@@ -71,51 +72,15 @@ const config = {
           },
           {
             href: 'https://github.com/Elyart-Network/NyaBot',
-            label: 'GitHub',
             position: 'right',
+            className: "header-github-link",
+            "aria-label": "GitHub Repository",
           },
         ],
       },
       footer: {
         style: 'dark',
-        links: [
-          {
-            title: '文档',
-            items: [
-              {
-                label: '快速开始',
-                to: '/docs/summary',
-              },
-            ],
-          },
-          {
-            title: '社区',
-            items: [
-              {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
-              },
-            ],
-          },
-          {
-            title: '更多',
-            items: [
-              {
-                label: 'GitHub',
-                href: 'https://github.com/Elyart-Network/NyaBot',
-              },
-            ],
-          },
-        ],
-        copyright: `Copyright © ${new Date().getFullYear()} Elyart Network. Built with Docusaurus.`,
+        copyright: `版权所有 © ${new Date().getFullYear()} Elyart Network. 此网站使用 Docusaurus 构建。`,
       },
       prism: {
         theme: lightCodeTheme,
