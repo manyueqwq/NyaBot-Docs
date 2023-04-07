@@ -28,8 +28,16 @@ const config = {
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'zh-Hans',
-    locales: ['zh-Hans', 'en'],
+    defaultLocale: 'zh',
+    locales: ['zh', 'en'],
+    localeConfigs: {
+      zh: {
+        label: '简体中文',
+      },
+      en: {
+        label: 'English',
+      },
+    }
   },
 
   presets: [
@@ -66,9 +74,9 @@ const config = {
         items: [
           {
             type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
+            sidebarId: 'guideSidebar',
             position: 'left',
-            label: '快速开始',
+            label: '指南',
           },
           {
             href: 'https://github.com/Elyart-Network/NyaBot',
