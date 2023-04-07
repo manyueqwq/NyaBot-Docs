@@ -28,7 +28,8 @@ const sidebars = {
       label: '部署',
       collapsible: false,
       items: [
-          'guide/full-install'
+          'guide/full-install',
+          'guide/config'
       ]
     }
   ]
