@@ -157,7 +157,12 @@ docker pull whydesd/nyabot
 使用 Docker CLI 运行容器：
 
 ```bash
-docker run -d --name nyabot -v /path/to/config.yaml:/app/config.yaml -v /path/to/data:/app/data -p 3000:3000 whydesd/nyabot
+docker run -d \
+--name nyabot \
+-v /path/to/config.yaml:/app/config.yaml \
+-v /path/to/data:/app/data \
+-p 3000:3000 \
+whydesd/nyabot
 ```
 
 :::tip
