@@ -106,6 +106,10 @@ const config = {
               },
             ],
           },
+          {
+            type: 'localeDropdown',
+            position: 'right',
+          },
         ],
       },
       footer: {
