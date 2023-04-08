@@ -10,32 +10,29 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: '简单易用',
+    Svg: require('@site/static/img/rocket.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+          NyaBot 开箱即用，只需运行可执行文件并修改配置文件即可使用，无需安装任何环境和依赖。
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: '可扩展',
+    Svg: require('@site/static/img/plugin.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+          NyaBot 支持基于 <code>Lua</code>，<code>JavaScript</code>，<code>gRPC</code> 的动态扩展组件，可根据开发习惯自行挑选使用。
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: '轻量快速',
+    Svg: require('@site/static/img/golang.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+          NyaBot 使用 <code>Golang</code> 开发，性能优异，内存占用低，可在几乎任意配置的服务器上运行。
       </>
     ),
   },
@@ -48,6 +45,7 @@ function Feature({title, Svg, description}: FeatureItem) {
         <Svg className={styles.featureSvg} role="img" />
       </div>
       <div className="text--center padding-horiz--md">
+        <br/>
         <h3>{title}</h3>
         <p>{description}</p>
       </div>

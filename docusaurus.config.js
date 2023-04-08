@@ -79,6 +79,12 @@ const config = {
             label: '指南',
           },
           {
+            label: '路线图',
+            href: 'https://github.com/Elyart-Network/NyaBot/blob/main/README.md#nyabot-roadmap',
+            position: 'left',
+            target: '_blank',
+          },
+          {
             type: 'docsVersionDropdown',
             position: 'right',
             dropdownItemsAfter: [{to: '/versions', label: '所有版本'}],
@@ -108,6 +114,18 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+      },
+      algolia: {
+        appId: process.env.ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_API_KEY,
+        indexName: 'NyaBot',
+        contextualSearch: true,
+        replaceSearchResultPathname: {
+          from: '/docs/',
+          to: '/',
+        },
+        searchParameters: {},
+        searchPagePath: 'search',
       },
     }),
 };
