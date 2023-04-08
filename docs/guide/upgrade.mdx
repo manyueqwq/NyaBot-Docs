@@ -1,1 +1,114 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # 📤 更新
+
+:::tip
+
+如果您在更新 NyaBot 时遇到任何问题，请在 [部署/故障](/docs/guide/troubleshoot) 中查看解决方案或联系我们。
+
+:::
+
+## 在本地服务器更新
+
+-----
+
+<Tabs>
+<TabItem value = "Windows" label = "Windows" default>
+<p>1. 直接替换 NyaBot 可执行文件。</p>
+<p>2. 打开您的命令提示符（它可以是 CMD, PowerShell 等）。</p>
+<p>3. 将您的命令提示符路径转到您存放 NyaBot 可执行文件的路径内。</p>
+<p>4. CMD: 直接执行 NyaBot.exe：</p>
+
+```bash
+NyaBot.exe
+```
+
+<p>4. PowerShell : 执行 NyaBot.exe：</p>
+
+```bash
+./NyaBot.exe
+```
+
+</TabItem>
+<TabItem value= "Linux" label= "Linux">
+<p>1. 直接替换 NyaBot 可执行文件。</p>
+<p>2. 打开您的终端或 SSH 。</p>
+<p>3. 将您的终端转到您存放 NyaBot 可执行文件的路径内。</p>
+<p>4. 为 NyaBot 添加可执行权限：</p>
+
+```bash
+chmod +x ./NyaBot
+```
+
+<p>5. 执行 NyaBot：</p>
+
+```bash
+./NyaBot
+```
+
+</TabItem>
+<TabItem value= "MacOS" label= "MacOS">
+<p>1. 直接替换 NyaBot 可执行文件。</p>
+<p>1. 打开您的终端或 SSH 。</p>
+<p>2. 将您的终端转到您存放 NyaBot 可执行文件的路径内。</p>
+<p>3. 为 NyaBot 添加可执行权限：</p>
+
+```bash
+chmod +x ./NyaBot
+```
+
+<p>4. 执行 NyaBot：</p>
+
+```bash
+./NyaBot
+```
+
+</TabItem>
+<TabItem value= "Android" label= "Android">
+<p>1. 直接替换 NyaBot 可执行文件。</p>
+<p>2. 将您的终端转到您存放 NyaBot 可执行文件的路径内。</p>
+<p>3. 为 NyaBot 添加可执行权限：</p>
+
+```bash
+chmod +x ./NyaBot
+```
+
+<p>4. 执行 NyaBot：</p>
+
+```
+./NyaBot
+```
+
+</TabItem>
+</Tabs>
+
+## 在 Docker 容器中更新
+
+-----
+
+1. 将您的 NyaBot 容器关闭。
+
+```bash
+docker stop nyabot
+```
+
+2. 将您的 NyaBot 容器删除（注意：如果您正确配置了挂载卷，数据不会丢失）。
+
+```bash
+docker rm nyabot
+```
+
+3. 拉取最新的 NyaBot 镜像。
+```bash
+docker pull whydesd/nyabot
+```
+4. 运行 NyaBot 容器。
+```bash
+docker run -d \
+        --name nyabot \
+        -v /path/to/config.yaml:/app/config.yaml \
+        -v /path/to/data:/app/data \
+        -p 3000:3000 \
+        whydesd/nyabot
+```

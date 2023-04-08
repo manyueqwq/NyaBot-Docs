@@ -125,7 +125,7 @@ chmod +x ./NyaBot
 
 <Tabs>
 <TabItem value = "Windows" label = "Windows" default>
-<p>访问 <a href="https://docs.docker.com/desktop/install/windows-install/">Docker 官方文档</a> 获取 MacOS 平台的 Docker Desktop 安装方法。</p>
+<p>访问 <a href="https://docs.docker.com/desktop/install/windows-install/">Docker 官方文档</a> 获取 Windows 平台的 Docker Desktop 安装方法。</p>
 <p>注意，此方法仅适用非生产环境部署，生产环境下请勿使用 Docker Desktop 进行安装部署，尽可能使用基于 Linux 的系统。</p>
 </TabItem>
 <TabItem value= "Linux" label= "Linux">
@@ -158,11 +158,11 @@ docker pull whydesd/nyabot
 
 ```bash
 docker run -d \
---name nyabot \
--v /path/to/config.yaml:/app/config.yaml \
--v /path/to/data:/app/data \
--p 3000:3000 \
-whydesd/nyabot
+        --name nyabot \
+        -v /path/to/config.yaml:/app/config.yaml \
+        -v /path/to/data:/app/data \
+        -p 3000:3000 \
+        whydesd/nyabot
 ```
 
 :::tip
