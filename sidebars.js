@@ -29,7 +29,10 @@ const sidebars = {
       collapsible: false,
       items: [
           'guide/full-install',
-          'guide/config'
+          'guide/config',
+          'guide/upgrade',
+          'guide/troubleshoot',
+          'guide/backup',
       ]
     }
   ]

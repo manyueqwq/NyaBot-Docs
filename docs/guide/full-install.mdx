@@ -1,6 +1,179 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # 💿 安装
 
 :::tip
+
 在 **[快速开始](/docs/guide/quick-start)** 中已简单介绍安装方式，此处将展示更进阶和完整的安装方法。
+
 :::
 
+## 在本地服务器安装
+
+-----
+
+### 步骤一，准备操作系统
+
+您需要准备一台可以进入访问终端的服务器。如果您没有服务器，可以使用 [Vultr](https://www.vultr.com/?ref=8677910) 或 [DigitalOcean](https://m.do.co/c/3b9b1b5b5b1d) 等云服务商提供的服务器。
+
+| 操作系统                              | 最低配置                             | 推荐配置                          |
+|-----------------------------------|----------------------------------|-------------------------------|
+| Ubuntu 16.04, 18.04, 20.04, 22.04 | 0.5 vCPU, 256 MB RAM, 20 GB Disk | 1 vCPU, 2 GB RAM, 20 GB Disk  |
+| Debian 9, 10, 11                  | 0.5 vCPU, 256 MB RAM, 20 GB Disk | 1 vCPU, 2 GB RAM, 20 GB Disk  |
+| CentOS 7, 8                       | 0.5 vCPU, 256 MB RAM, 20 GB Disk | 1 vCPU, 2 GB RAM, 20 GB Disk  |
+| Windows Server 2016, 2019         | 2 vCPU, 4 GB RAM, 60 GB Disk     | 4 vCPU, 8 GB RAM, 120 GB Disk |
+| MacOS Server                      | 2 vCPU, 4 GB RAM, 60 GB Disk     | 4 vCPU, 8 GB RAM, 120 GB Disk |
+| Android 12+                       | 2 vCPU, 4 GB RAM, 30 GB Disk     | 4 vCPU, 8 GB RAM, 60 GB Disk  |
+
+:::tip
+
+以上系统要求为最小化部署，如果您需要运行 **NyaBot** 以外的其他服务，可能需要更高的配置。
+
+:::
+
+#### 服务器要求
+
+- 服务器需要能够访问外网。
+- 服务器需要能够访问 **GitHub**。
+
+### 步骤二，下载可执行文件
+
+<Tabs>
+<TabItem value = "可以正常访问 GitHub" label = "可以正常访问 GitHub" default>
+<p>从 <a href="https://github.com/Elyart-Network/NyaBot/releases">GitHub Release Page</a> 下载最新版本的可执行文件或执行以下命令。</p>
+
+```bash
+```
+
+</TabItem>
+<TabItem value = "访问 GitHub 受限制" label = "访问 GitHub 受限制" default>
+</TabItem>
+</Tabs>
+
+### 步骤三，运行可执行文件
+
+<Tabs>
+<TabItem value = "Windows" label = "Windows" default>
+<p>CMD: 直接执行 NyaBot.exe：</p>
+
+```bash
+NyaBot.exe
+```
+
+<p>PowerShell : 执行 NyaBot.exe：</p>
+
+```bash
+.\NyaBot.exe
+```
+
+</TabItem>
+<TabItem value= "Linux" label= "Linux">
+<p>为 NyaBot 添加可执行权限：</p>
+
+```bash
+chmod +x ./NyaBot
+```
+
+<p>执行 NyaBot：</p>
+
+```bash
+./NyaBot
+```
+
+</TabItem>
+<TabItem value= "MacOS" label= "MacOS">
+<p>为 NyaBot 添加可执行权限：</p>
+
+```bash
+chmod +x ./NyaBot
+```
+
+<p>执行 NyaBot：</p>
+
+```bash
+./NyaBot
+```
+
+</TabItem>
+<TabItem value= "Android" label= "Android">
+<p>下载 <a href= "https://github.com/termux/termux-app/releases/">Termux</a> 或其他终端程序</p>
+<p>为 NyaBot 添加可执行权限：</p>
+
+```bash
+chmod +x ./NyaBot
+```
+
+<p>执行 NyaBot：</p>
+
+```bash
+./NyaBot
+```
+
+</TabItem>
+</Tabs>
+
+## 在 Docker 容器中安装
+
+-----
+
+### 步骤一，准备操作系统
+
+运行配置要求与 [”步骤一，准备操作系统“](#步骤一准备操作系统) 相同，但 Docker 本身可能会占用更多的资源，请访问 [Docker 官方文档](https://docs.docker.com/get-started/) 以获取更多信息。
+
+### 步骤二，安装 Docker
+
+<Tabs>
+<TabItem value = "Windows" label = "Windows" default>
+<p>访问 <a href="https://docs.docker.com/desktop/install/windows-install/">Docker 官方文档</a> 获取 MacOS 平台的 Docker Desktop 安装方法。</p>
+<p>注意，此方法仅适用非生产环境部署，生产环境下请勿使用 Docker Desktop 进行安装部署，尽可能使用基于 Linux 的系统。</p>
+</TabItem>
+<TabItem value= "Linux" label= "Linux">
+<p>根据 <a href="https://docs.docker.com/engine/install/">Docker 官方文档</a> 直接通过以下脚本安装 Docker。</p>
+<p>注意，此方法仅适用与非生产环境部署，生产环境下请勿使用脚本一键安装，更多请查看 <a href="https://docs.docker.com/engine/install/">Docker 官方文档</a>。</p>
+
+```bash
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+```
+
+</TabItem>
+<TabItem value= "MacOS" label= "MacOS">
+<p>访问 <a href="https://docs.docker.com/desktop/install/mac-install/">Docker 官方文档</a> 获取 MacOS 平台的 Docker Desktop 安装方法。</p>
+<p>注意，此方法仅适用非生产环境部署，生产环境下请勿使用 Docker Desktop 进行安装部署，尽可能使用基于 Linux 的系统。</p>
+</TabItem>
+</Tabs>
+
+### 步骤三，拉取 NyaBot 镜像
+
+在终端中执行以下指令：
+
+```bash
+docker pull whydesd/nyabot
+```
+
+### 步骤四，运行 NyaBot 容器
+
+使用 Docker CLI 运行容器：
+
+```bash
+docker run -d --name nyabot -v /path/to/config.yaml:/app/config.yaml -v /path/to/data:/app/data -p 3000:3000 whydesd/nyabot
+```
+
+:::tip
+
+请将 `/path/to/config.yaml` 替换为您的`配置文件`路径，将 `/path/to/data` 替换为您的`数据文件夹`路径。
+
+配置文件模板请参考 **[部署/配置](/docs/guide/config)**。
+
+:::
+
+## 在 Kubernetes 中安装
+
+-----
+
+:::caution
+
+Kubernetes 部署方法仍在设计中，暂不可用。
+
+:::
