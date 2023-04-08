@@ -79,10 +79,25 @@ const config = {
             label: '指南',
           },
           {
-            href: 'https://github.com/Elyart-Network/NyaBot',
+            type: 'docsVersionDropdown',
             position: 'right',
-            className: "header-github-link",
-            "aria-label": "GitHub Repository",
+            dropdownItemsAfter: [{to: '/versions', label: '所有版本'}],
+            dropdownActiveClassDisabled: true,
+          },
+          {
+            type: 'dropdown',
+            label: '外部链接',
+            position: 'right',
+            items: [
+              {
+                label: '讨论社区',
+                href: 'https://github.com/Elyart-Network/NyaBot/discussions',
+              },
+              {
+                label: '代码仓库',
+                href: 'https://github.com/Elyart-Network/NyaBot',
+              },
+            ],
           },
         ],
       },

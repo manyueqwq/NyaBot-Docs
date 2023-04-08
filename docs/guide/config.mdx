@@ -28,7 +28,6 @@ gocqhttp:
     host_url: http://127.0.0.1:5700
     delay: 3000
     enable_ws: false
-    ws_forward: false
 queue:
     type: internal
     host: ""
@@ -115,7 +114,7 @@ server:
 
 延迟时间默认为 `3000` 毫秒，如果 **GoCqHttp** 服务响应时间过长，可以适当调整延迟时间。（调整该参数可能造成机器人账号风控）
 
-启用正向 **WebSocket** 后，将会使用正向 **WebSocket** 连接，服务器地址填写 **GoCqHttp** 的 **WebSocket** 地址。
+启用 **WebSocket** 后，服务器地址填写 **GoCqHttp** 的 **WebSocket** 地址，例如 `ws://127.0.0.1:8000`，将启用正向 **WebSocket** 连接。
 
 :::
 
@@ -123,4 +122,3 @@ server:
 - `host_url` 服务器地址： **GoCqHttp** 服务的地址
 - `delay` 延迟时间：**GoCqHttp** 响应延迟时间
 - `enable_ws` 启用WS：是否启用 **Websocket** 服务
-- `ws_forward` 正向WS：使用正向 **Websocket** 服务
