@@ -50,15 +50,15 @@ chmod +x ./NyaBot
 </TabItem>
 <TabItem value= "MacOS" label= "MacOS">
 <p>1. 直接替换 NyaBot 可执行文件。</p>
-<p>1. 打开您的终端或 SSH 。</p>
-<p>2. 将您的终端转到您存放 NyaBot 可执行文件的路径内。</p>
-<p>3. 为 NyaBot 添加可执行权限：</p>
+<p>2. 打开您的终端或 SSH 。</p>
+<p>3. 将您的终端转到您存放 NyaBot 可执行文件的路径内。</p>
+<p>4. 为 NyaBot 添加可执行权限：</p>
 
 ```bash
 chmod +x ./NyaBot
 ```
 
-<p>4. 执行 NyaBot：</p>
+<p>5. 执行 NyaBot：</p>
 
 ```bash
 ./NyaBot
@@ -87,23 +87,23 @@ chmod +x ./NyaBot
 
 -----
 
-1. 将您的 NyaBot 容器关闭。
+### 1. 将您的 NyaBot 容器关闭。
 
 ```bash
 docker stop nyabot
 ```
 
-2. 将您的 NyaBot 容器删除（注意：如果您正确配置了挂载卷，数据不会丢失）。
+### 2. 将您的 NyaBot 容器删除（注意：如果您正确配置了挂载卷，数据不会丢失）。
 
 ```bash
 docker rm nyabot
 ```
 
-3. 拉取最新的 NyaBot 镜像。
+### 3. 拉取最新的 NyaBot 镜像。
 ```bash
 docker pull whydesd/nyabot
 ```
-4. 运行 NyaBot 容器。
+### 4. 运行 NyaBot 容器。
 ```bash
 docker run -d \
         --name nyabot \
