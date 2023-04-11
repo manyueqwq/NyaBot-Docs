@@ -120,18 +120,14 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
-      // algolia: {
-      //   appId: process.env.ALGOLIA_APP_ID,
-      //   apiKey: process.env.ALGOLIA_API_KEY,
-      //   indexName: 'NyaBot',
-      //   contextualSearch: true,
-      //   replaceSearchResultPathname: {
-      //     from: '/docs/',
-      //     to: '/',
-      //   },
-      //   searchParameters: {},
-      //   searchPagePath: 'search',
-      // },
+      algolia: {
+        appId: process.env.ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_API_KEY,
+        indexName: 'nyabot-elyart',
+        contextualSearch: true,
+        searchParameters: {},
+        searchPagePath: 'search',
+      },
     }),
 };
 
