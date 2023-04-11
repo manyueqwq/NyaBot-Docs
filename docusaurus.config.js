@@ -80,10 +80,9 @@ const config = {
             label: '指南',
           },
           {
-            label: '路线图',
-            href: 'https://github.com/Elyart-Network/NyaBot/blob/main/README.md#nyabot-roadmap',
+            to: 'roadmap',
             position: 'left',
-            target: '_blank',
+            label: '路线图',
           },
           {
             type: 'docsVersionDropdown',
