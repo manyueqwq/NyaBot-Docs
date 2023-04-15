@@ -43,7 +43,7 @@ const sidebars = {
         collapsible: false,
         items: [
             'extend/summary',
-            'extend/actlib',
+            'extend/library',
         ]
     }
   ]
