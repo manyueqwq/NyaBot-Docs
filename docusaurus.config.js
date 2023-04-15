@@ -80,6 +80,12 @@ const config = {
             label: '指南',
           },
           {
+            type: 'docSidebar',
+            sidebarId: 'extendSidebar',
+            position: 'left',
+            label: '扩展',
+          },
+          {
             to: 'roadmap',
             position: 'left',
             label: '路线图',

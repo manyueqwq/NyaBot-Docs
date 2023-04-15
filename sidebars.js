@@ -35,6 +35,17 @@ const sidebars = {
           'guide/backup',
       ]
     }
+  ],
+  extendSidebar: [
+    {
+        type: 'category',
+        label: '通用',
+        collapsible: false,
+        items: [
+            'extend/summary',
+            'extend/actlib',
+        ]
+    }
   ]
 };
 

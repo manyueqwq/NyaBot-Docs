@@ -1,0 +1,37 @@
+# 执行库
+
+:::tip
+
+快速执行库 `FastLib` 目前处于测试阶段，不建议在生产环境中使用。
+
+:::
+
+## 内部库 Internal Library
+
+:::note
+
+内部库建议仅用于框架内组件调用使用，不建议在框架外调用。
+
+:::
+
+- **BotCli** 机器人命令行，用于在聊天过程中执行命令行指令。
+- **Config** 框架配置文件模块，用于读取和写入配置文件。
+- **gRPC** 框架 `gRPC` 插件实现，用于与 `gRPC` 客户端通信。
+- **JavaScript** 框架 `JavaScript` 插件实现，用于加载和执行 `JavaScript` 扩展。
+- **Logger** 框架日志模块，用于记录和返回框架运行日志。
+- **Lua** 框架 `Lua` 插件实现，用于加载和执行 `Lua` 扩展。
+- **Mirai** 框架 `Mirai` 的协议实现，基于 **[MiraiGo](https://github.com/Mrs4s/MiraiGo)** 原生执行机器人进程。
+- **Utils** 框架工具模块，用于提供框架内部的工具函数，例如 HTTP 请求等。
+
+## 外部库 External Library
+
+:::note
+
+外部库是建议的唯一可使用框架外执行库，它们经过测试并且可以在生产环境中使用。
+
+:::
+
+前往 **[Go Package](https://pkg.go.dev/github.com/Elyart-Network/NyaBot)** 查看对应库的 `Go Docs` 接口文档。
+
+- **GoCqHttp** 执行库 `pkg/gocqhttp` 用于与 **[go-cqhttp](github.com/Mrs4s/go-cqhttp)** 通信，并提供所有 API 的通讯方式和函数接口。
+- **FastLib** 执行库 `pkg/fastlib` 是 **[NyaBot](github.com/Elyart-Network/NyaBot)** 框架一个特殊的执行库，整合所有通讯协议，用于更快捷的执行函数指令。
