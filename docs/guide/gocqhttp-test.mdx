@@ -1,0 +1,27 @@
+# 🗨️GoCqHttp测试
+
+<br/>
+
+如果你确认你已经配置好你的bot，可以用如下方法进行测试：
+
+1.复制这段代码
+
+```if Callback.CqCall.MessageData == "喵呜" then
+    if Callback.CqCall.GroupID ~= 0 then
+        CqMsg:Reply("喵~~~", Callback.CqCall.GroupID, false, Callback.CqCall.MessageID)
+        end
+    if Callback.CqCall.GroupID == 0 then
+        CqMsg:Reply("喵~~~", Callback.CqCall.UserID, false, Callback.CqCall.MessageID)
+        end
+  end
+```
+
+将它保存在 (机器人运行目录）/script目录下，文件命名为example.lua
+
+2.随后打开lua.ini,将enable调整为true，将script设置为example.lua
+
+3.给你的bot发送私聊消息”喵呜“，当然你也可以将bot拉进群，发送”喵呜“试试看
+
+4.如果运行正常，你的bot应该会回复你”喵~~~“
+
+**如果你的bot运行正常，恭喜你，你可以开始做更高级的开发了！**
