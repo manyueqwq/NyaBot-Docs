@@ -1,0 +1,31 @@
+# 📋GoCqHTTP - Lua开发教程
+
+:::tip
+如果您完全不了解lua，请不要一上来就急着写高级功能，先仔细阅读[lua基础开发教程](https://www.runoob.com/lua/lua-tutorial.html)
+
+:::
+
+以下是Nyabot可用的lua函数：
+
+#### Part1 消息类函数
+
+`CqMsg:SendMsg(Message, Id, IsGroup)`函数：发送群或私聊消息
+
+- Message string：消息内容，支持CQ码
+- Id：群ID或者用户的QQ号
+- IsGroup：是否为群聊（给用户发送消息时，传入false，给群聊发送消息时，传入true）
+
+`CqMsg:Reply(Message, ID, IsGroup,MessageID)`函数：发送回复消息
+
+- Message string：消息内容，支持CQ码
+- Id：群ID或者用户的QQ号
+- IsGroup：是否为群聊（给用户发送消息时，传入false，给群聊发送消息时，传入true）
+- MessageID：要回复的消息的ID
+
+`CqMsg:GetMsg(MessageID)`函数：通过消息id获取消息内容
+
+- MessageID：消息id
+
+#### Part2 机器人信息类函数
+
+`CqMsg:GetFriends()`函数：获取好友列表
