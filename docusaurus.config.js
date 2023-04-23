@@ -126,8 +126,8 @@ const config = {
         darkTheme: darkCodeTheme,
       },
       algolia: {
-        appId: process.env.ALGOLIA_APP_ID,
-        apiKey: process.env.ALGOLIA_API_KEY,
+        appId: 'R0FAM19FV8',
+        apiKey: '48f8c18a3cc81a45f164359d7e59f4a5',
         indexName: 'nyabot-elyart',
         contextualSearch: true,
         searchParameters: {},
