@@ -1,0 +1,175 @@
+# 🔗 连接
+
+:::note
+
+本教程将教会你如何将GOCQHTTP接入Nyabot。
+
+:::
+
+## 前期准备
+
+-----
+
+#### 前往 [GOCQHTTP官网](https://docs.go-cqhttp.org/guide/quick_start.html#%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B) 下载安装并登录 GoCqHttp。
+
+## 开始连接
+
+-----
+
+:::tip
+
+以下三种连接方式，您可以根据自身实际情况选择一种进行连接。
+
+通常情况下，反向 WebSocket 连接稳定性最高，首选使用。
+
+:::
+
+### HTTP 正反向连接
+
+#### 在您的 GoCqHttp 配置中 Server 分段下，添加连接到的 HTTP 服务器。
+
+以下是一个样例，您可以根据实际情况修改配置文件，样例中的配置点代表应当按照自身实际情况修改的部分：
+
+```yaml
+# 连接服务列表
+servers:
+  # 添加方式，同一连接方式可添加多个，具体配置说明请查看文档
+  #- http: # http 通信
+  #- ws:   # 正向 Websocket
+  #- ws-reverse: # 反向 Websocket
+  #- pprof: #性能分析服务器
+  - http: # HTTP 通信设置
+      address: 0.0.0.0:5700 # HTTP监听地址
+      timeout: 5      # 反向 HTTP 超时时间, 单位秒，<5 时将被忽略
+      long-polling:   # 长轮询拓展
+        enabled: false       # 是否开启
+        max-queue-size: 2000 # 消息队列大小，0 表示不限制队列大小，谨慎使用
+      middlewares:
+        <<: *default # 引用默认中间件
+      post:          # 反向HTTP POST地址列表
+      - url: 'http://127.0.0.1:3000' # 地址, 需要与NyaBot监听地址一致
+        secret: ''                   # 密钥
+        max-retries: 3               # 最大重试，0 时禁用
+        retries-interval: 1500       # 重试时间，单位毫秒，0 时立即
+```
+
+注意，在这里填写的端口需要在服务器防火墙中放开（安全组放不放无所谓，但是服务器内部至少要能连上它）
+
+#### 接下来，在 NyaBot 配置文件中，修改以下部分：
+
+```yaml
+gocqhttp:
+    enable: true
+    # 连接地址，需要与GoCQHTTP的HTTP监听地址一致
+    host_url: http://127.0.0.1:5700
+    delay: 3000
+    enable_ws: false
+server:
+    # 服务器监听端口，需要与GoCQHTTP的连接端口一致
+    listen_port: "3000"
+    debug_mode: true
+    file_logger: false
+```
+
+### 正向 WebSocket
+
+#### 在您的 GoCqHttp 配置中 Server 分段下，添加连接到的 WebSocket 服务器。
+
+以下是一个样例，您可以根据实际情况修改配置文件，样例中的配置点代表应当按照自身实际情况修改的部分：
+
+```yaml
+# 连接服务列表
+servers:
+  # 添加方式，同一连接方式可添加多个，具体配置说明请查看文档
+  #- http: # http 通信
+  #- ws:   # 正向 Websocket
+  #- ws-reverse: # 反向 Websocket
+  #- pprof: #性能分析服务器
+  - ws:
+      # 正向WS服务器监听地址，任意可用端口
+      address: 0.0.0.0:8080
+      middlewares:
+        <<: *default # 引用默认中间件
+```
+
+注意，在这里填写的端口需要在服务器防火墙中放开（安全组放不放无所谓，但是服务器内部至少要能连上它）
+
+#### 接下来，在 NyaBot 配置文件中，修改以下部分：
+
+```yaml
+gocqhttp:
+    enable: true
+    # 连接地址，需要与GoCQHTTP的监听地址一致
+    host_url: ws://127.0.0.1:8080
+    delay: 3000
+    enable_ws: true
+```
+
+### 反向 WebSocket
+
+#### 在您的 GoCqHttp 配置中 Server 分段下，添加连接到的 WebSocket 服务器。
+
+以下是一个样例，您可以根据实际情况修改配置文件，样例中的配置点代表应当按照自身实际情况修改的部分：
+
+```yaml
+# 连接服务列表
+servers:
+  # 添加方式，同一连接方式可添加多个，具体配置说明请查看文档
+  #- http: # http 通信
+  #- ws:   # 正向 Websocket
+  #- ws-reverse: # 反向 Websocket
+  #- pprof: #性能分析服务器
+  - ws-reverse:
+      # 填入NyaBot的通讯地址，通用型地址
+      universal: ws://127.0.0.1:3000/api/gocqhttp
+      # 重连间隔 单位毫秒
+      reconnect-interval: 3000
+      middlewares:
+        <<: *default # 引用默认中间件
+
+```
+
+注意，在这里填写的端口需要在服务器防火墙中放开（安全组放不放无所谓，但是服务器内部至少要能连上它）
+
+#### 接下来，在 NyaBot 配置文件中，修改以下部分：
+
+```yaml
+gocqhttp:
+    enable: true
+    host_url: # 反向WebSocket模式下无需填写！
+    delay: 3000
+    enable_ws: true
+server:
+    # 服务器监听端口，需要与GoCQHTTP的连接端口一致
+    listen_port: "3000"
+    debug_mode: true
+    file_logger: false
+```
+
+## 启动服务
+
+-----
+
+:::tip
+
+先启动 **Nyabot**，再启动 **GoCQHTTP**，如果没有报错，**Nyabot** 终端返回如下内容，启动成功！
+
+:::
+
+![正常情况](https://i.328888.xyz/2023/04/22/i5RxSd.png)
+
+**同时注意 GoCqHTTP 终端，有没有提示连接成功**
+
+-----
+
+**如果出现类似这样的错误，请尝试重启 Nyabot 和 GoCqHTTP。**
+
+![出错](https://i.328888.xyz/2023/04/22/i5RpKo.png)
+
+:::note
+
+- 出现其他意外情况，请查看 ”[🔍故障](/docs/guide/troubleshoot)“ 片段，寻求帮助。
+
+- 如果已经配置完成，可以查看 ”[🗨️测试](/docs/guide/gocqhttp-test)“ 章节，来测试你的机器人。
+
+:::
