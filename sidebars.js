@@ -13,49 +13,57 @@
 
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
-  guideSidebar: [
-    {
-      type: 'category',
-      label: '入门',
-      collapsible: false,
-      items: [
-          'guide/summary',
-          'guide/quick-start'
-      ]
-    },
-    {
-      type: 'category',
-      label: '部署',
-      collapsible: false,
-      items: [
-          'guide/full-install',
-          'guide/config',
-          'guide/upgrade',
-          'guide/troubleshoot',
-          'guide/backup',
-      ]
-    },
-    {
-        type: 'category',
-        label: 'GoCqHttp',
-        collapsible: false,
-        items: [
-            'guide/gocqhttp-connect',
-            'guide/gocqhttp-test',
-        ]
-    }
-  ],
-  extendSidebar: [
-    {
-        type: 'category',
-        label: '通用',
-        collapsible: false,
-        items: [
-            'extend/summary',
-            'extend/library',
-        ]
-    }
-  ]
+    guideSidebar: [
+        {
+            type: 'category',
+            label: '入门',
+            collapsible: false,
+            items: [
+                'guide/summary',
+                'guide/quick-start'
+            ]
+        },
+        {
+            type: 'category',
+            label: '部署',
+            collapsible: false,
+            items: [
+                'guide/full-install',
+                'guide/config',
+                'guide/upgrade',
+                'guide/troubleshoot',
+                'guide/backup',
+            ]
+        },
+        {
+            type: 'category',
+            label: 'GoCqHttp',
+            collapsible: false,
+            items: [
+                'guide/gocqhttp-connect',
+                'guide/gocqhttp-test',
+            ]
+        }
+    ],
+    extendSidebar: [
+        {
+            type: 'category',
+            label: '通用',
+            collapsible: false,
+            items: [
+                'extend/summary',
+                'extend/library',
+            ]
+        },
+        {
+            type: 'category',
+            label: 'Lua 脚本',
+            collapsible: false,
+            items: [
+                'extend/lua-gocqhttp',
+            ]
+        }
+    ]
 };
 
 module.exports = sidebars;
