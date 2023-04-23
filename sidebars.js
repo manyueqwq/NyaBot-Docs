@@ -34,6 +34,15 @@ const sidebars = {
           'guide/troubleshoot',
           'guide/backup',
       ]
+    },
+    {
+        type: 'category',
+        label: 'GoCqHttp',
+        collapsible: false,
+        items: [
+            'guide/gocqhttp-connect',
+            'guide/gocqhttp-test',
+        ]
     }
   ],
   extendSidebar: [
