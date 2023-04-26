@@ -1,0 +1,89 @@
+# GoCqHTTP 函数
+
+:::tip
+
+如果您完全不了解lua，请不要一上来就急着写高级功能，先仔细阅读 [lua 基础开发教程](https://www.runoob.com/lua/lua-tutorial.html)
+
+:::
+
+## 操作类函数 (CqAct)
+
+-----
+
+### 添加/撤销群管理员
+
+:::tip
+
+执行此函数，需要机器人在群中拥有管理员权限，否则无法执行！
+
+:::
+
+#### 函数：`CqAct:SetGroupAdmin(GroupID, UserId, Enable)`
+
+- GroupID（int 参数）：群 ID。
+- UserID（int 参数）：群内用户 ID。
+- Enable（bool 参数）：为 True 则加管理员权限，为 False 则撤管理员权限。
+
+### 开/关全员禁言
+
+:::tip
+
+执行此函数，需要机器人在群中拥有管理员权限，否则无法执行！
+
+:::
+
+#### 函数：`CqAct:GroupMute(GroupID, UnMute)`
+
+- GroupID（int 参数）：要操作的群 ID。
+- Unmute（bool 参数）：为 True 则开启，为 False 则关闭。
+
+### 踢出群成员
+
+:::tip
+
+执行此函数，需要机器人在群中拥有管理员权限，否则无法执行！
+
+:::
+
+#### 函数：`CqAct:GroupKick(GroupID, UserID, RejectAddRequest)`
+
+- GroupID（int 参数）：要操作的群 ID。
+- UserID（int 参数）：要踢出的用户 ID。
+- RejectAddRequest（bool 参数）设置为 True 则不允许此人再申请加群。
+
+### 机器人离开群
+
+#### 函数：`CqAct:LeaveGroup(GroupID)`
+
+- GroupID（int 参数）：要操作的群 ID。
+
+### 解散群聊
+
+:::tip
+
+执行此函数，需要机器人在群中拥有管理员权限，否则无法执行！
+
+:::
+
+#### 函数：`CqAct:DismissGroup(GroupID int64)`
+
+- GroupID（int 参数）：要操作的群 ID。
+
+### 群签到
+
+#### 函数`CqAct:SendGroupSign(GroupID)`
+
+- GroupID（int 参数）：要操作的群 ID。
+
+### 设置/移除精华消息
+#### 函数：`SetEssenceMsg(MessageID, Remove)`
+
+- MessageID（int参数）：要操作的消息id
+- Remove（bool参数）：设为True则是取消精华消息，设为False则是设置精华消息
+
+:::caution
+
+本项目贡献人员不会回应违法违规脚本作者发起任何形式的服务请求，严禁使用Nyabot从事任何非法活动！
+禁止使用Nyabot实现违法违规功能！任何邪恶终将绳之以法！
+
+:::
