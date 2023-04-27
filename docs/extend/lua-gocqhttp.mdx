@@ -6,6 +6,12 @@
 
 :::
 
+:::caution
+
+以不恰当的方式调用这些函数可能导致账号被风控或封禁，详见“指南/GoCqHTTP/QQ协议风控”部分
+
+:::
+
 ## 操作类函数 (CqAct)
 
 -----
@@ -24,6 +30,8 @@
 - UserID（int 参数）：群内用户 ID。
 - Enable（bool 参数）：为 True 则加管理员权限，为 False 则撤管理员权限。
 
+-----
+
 ### 开/关全员禁言
 
 :::tip
@@ -36,6 +44,8 @@
 
 - GroupID（int 参数）：要操作的群 ID。
 - Unmute（bool 参数）：为 True 则开启，为 False 则关闭。
+
+-----
 
 ### 踢出群成员
 
@@ -51,11 +61,16 @@
 - UserID（int 参数）：要踢出的用户 ID。
 - RejectAddRequest（bool 参数）设置为 True 则不允许此人再申请加群。
 
+-----
+
+
 ### 机器人离开群
 
 #### 函数：`CqAct:LeaveGroup(GroupID)`
 
 - GroupID（int 参数）：要操作的群 ID。
+
+-----
 
 ### 解散群聊
 
@@ -69,17 +84,50 @@
 
 - GroupID（int 参数）：要操作的群 ID。
 
+-----
+
+
 ### 群签到
 
 #### 函数`CqAct:SendGroupSign(GroupID)`
 
 - GroupID（int 参数）：要操作的群 ID。
 
+-----
+
 ### 设置/移除精华消息
-#### 函数：`SetEssenceMsg(MessageID, Remove)`
+#### 函数：`CqMsg:SetEssenceMsg(MessageID, Remove)`
 
 - MessageID（int参数）：要操作的消息id
 - Remove（bool参数）：设为True则是取消精华消息，设为False则是设置精华消息
+
+-----
+
+## 消息类函数（CqMsg）：
+
+### 发送消息
+
+#### 函数：`CqMsg:SendMsg(Message, Id, IsGroup)`
+
+- Message（String参数）：消息内容，字符串，支持CQ码
+- Id（int参数）：要发给的人或群ID
+- Isgroup（Bool参数）：设为True则是发给群，设为False则是发给人
+
+-----
+
+### 回复消息
+
+#### 函数`CqMsg:Reply(Message, Id, IsGroup, To)`
+
+- Message（String参数）：消息内容，字符串，支持CQ码
+- Id（int参数）：要发给的人或群ID
+- Isgroup（Bool参数）：设为True则是发给群，设为False则是发给人
+- To（int参数）：要回复的消息id
+
+-----
+
+**此文档处于暂未完成的状态……**
+
 
 :::caution
 
