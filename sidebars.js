@@ -42,6 +42,7 @@ const sidebars = {
             items: [
                 'guide/gocqhttp-connect',
                 'guide/gocqhttp-test',
+                'guide/aboutqqrisk',
             ]
         }
     ],
