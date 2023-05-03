@@ -1,0 +1,55 @@
+import Tabs from '@theme/Tabs';
+
+import TabItem from '@theme/TabItem';
+
+# ⚠️ 风控
+
+:::note
+
+- 风控是**不可避免的正常情况**，您应当正确认识并了解如何应对风控
+- 风控和封禁**不是一个概念**，被风控并不代表被封禁！
+
+:::
+
+
+:::tip
+
+请查看登录错误的Code，并对照检查。
+
+:::
+
+#### 通过 GoCqHttp 协议连接的机器人，通常可能出现如下风控情况：
+
+<Tabs>
+<TabItem value="45" label="Code:45" default>
+这是目前最严重的风控，可能无法处理。<br />
+所有 <b>协议</b> 都可能触发此类风控！<br />
+尝试 <code>-update-protocol</code> 后登录，如果不行则先暂时不登，等待几天，或更换账号与 IP。
+</TabItem>
+<TabItem value="235" label="Code:235">
+将 <b>GoCqHTTP</b> 升级到最新版本后，尝试使用 <code>-update-protocol</code> 参数重新登录。
+</TabItem>
+<TabItem value="237" label="Code:237">
+滑块处理不当导致的，重新验证滑块。
+</TabItem>
+<TabItem value="238" label="Code:238">
+主要出现于 <b>ANDROID_WATCH</b> 协议，尝试使用扫码登录解决。
+<br />
+<b>如果仍然不行，请将 GoCqHttp 程序和手机在同一个局域网下登录。</b>
+</TabItem>
+</Tabs>
+
+-----
+
+附赠一些防封禁，防风控小技巧：
+- 机器人发送信息尽量不包含敏感词
+- 机器人发信息间隔2-4秒
+- 不要经常用其他设备挤登录，频繁切换会封号或者风控
+- 机器人账号的等级尽量大于24级
+- 新注册7天的号不要登框架
+- 机器人账号近期如果经常屏蔽或掉线，等48~72小时后再挂
+- Q龄大的号不易风控
+- 不要发送假红包等误导性的卡片
+- 使用网络稳定的vps
+- 不要加群过多
+- 不要经常重启机器人
