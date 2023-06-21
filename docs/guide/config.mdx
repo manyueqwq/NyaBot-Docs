@@ -12,43 +12,52 @@
 
 ```yaml
 cache:
-    type: internal
-    host: ""
-    index_name: ""
+    external: false
+    hosts: []
+    master: ""
     username: ""
     password: ""
 database:
-    type: internal
+    type: sqlite
     host: ""
     name: ""
     username: ""
     password: ""
 gocqhttp:
-    enable: true
+    enable: false
     host_url: http://127.0.0.1:5700
     delay: 3000
     enable_ws: false
-queue:
-    type: internal
-    host: ""
-    index_name: ""
-    username: ""
-    password: ""
+logging:
+    external: false
+    mongo_uri: mongodb://
+    mongo_db: ""
+    cache_num: 80
+    internal_log: false
+mirai:
+    enable: false
+plugin:
+    lua_enable: true
+    lua_script_dir: scripts
+    lua_sandbox: false
 search:
-    type: internal
+    enable: false
     host: ""
     index_name: ""
     username: ""
     password: ""
 server:
     listen_port: "3000"
-    debug_mode: true
+    rpc_port: "3001"
+    debug_mode: false
     file_logger: false
+
 ```
 
 ### Server 服务器配置
 
 - `listen_port` 监听端口：**HTTP** 监听端口与 **Websocket** 监听端口
+- `rpc_port` gRPC监听端口
 - `debug_mode` 调试模式：输出程序调试日志到终端，默认为 `true` 开启
 - `file_logger` 文件日志：将日志输出到文件 (**Beta**)
 
@@ -68,15 +77,9 @@ server:
 
 ### Cache 缓存配置
 
-:::caution
-
-暂未实现该功能！
-
-:::
-
-- `type` 驱动器类型： 缓存驱动器类型，默认为 `internal`
+- `external` 是否使用外置缓存器
 - `host` 服务器地址： 缓存的远端服务器地址
-- `index_name` 前缀名称： 缓存的前缀名称（自定义）
+- `master` 主从模式Redis地址
 - `username` 用户名：缓存连接认证用户名
 - `password` 密码： 缓存连接认证密码
 
@@ -96,13 +99,8 @@ server:
 
 ### Database 数据库配置
 
-:::caution
 
-暂未实现该功能！
-
-:::
-
-- `type` 驱动器类型： 数据库驱动器类型，默认为 `internal`
+- `type` 驱动器类型： 数据库驱动器类型，默认为 `sqlite` (可选：MySQL,Postgres)
 - `host` 服务器地址： 数据库的远端服务器地址
 - `name` 数据库名称： 数据库的名称
 - `username` 用户名：数据库连接认证用户名
@@ -122,3 +120,35 @@ server:
 - `host_url` 服务器地址： **GoCqHttp** 服务的地址
 - `delay` 延迟时间：**GoCqHttp** 响应延迟时间
 - `enable_ws` 启用WS：是否启用 **Websocket** 服务
+
+### Logging 日志记录器
+
+- `external` 是否启用外置日志记录器
+- `mongo_uri` MongoDB连接地址
+- `mongo_db` MongoDB数据库名称
+- `cache_num` 记录缓存数量
+- `internal_log` 是否将日志记录到数据库
+
+### Plugin 插件管理
+
+- `lua_enable` 是否启用Lua脚本支持
+- `lua_script_dir` Lua脚本目录
+
+
+
+## Lua.ini Lua脚本管理
+
+```ini
+[example]
+enable = false
+script = example.lua
+```
+:::caution
+
+中括号内的插件名称必须唯一
+
+:::
+
+
+- `enable` 是否启用该脚本
+- `script` 脚本文件名称
