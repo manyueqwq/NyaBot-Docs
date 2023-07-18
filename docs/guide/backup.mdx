@@ -1,1 +1,66 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # 🗃️ 备份
+
+:::note
+
+本教程将教会你如何将NyaBot执行完整备份，并将其安全迁移。
+
+:::
+
+:::caution
+
+请确认您的NyaBot实例处于关闭状态，在未关闭的情况下备份可能会导致无法预料的后果！
+
+:::
+
+## 在本地服务器备份
+
+-----
+
+<Tabs>
+<TabItem value = "Windows" label = "Windows" default>
+<p>1. 将NyaBot实例关闭。</p>
+<p>2. 打开您存放NyaBot可执行文件的文件夹。</p>
+<p>3. 将目录内的 config.yaml与scripts文件夹备份。</p>
+
+
+</TabItem>
+<TabItem value= "Linux" label= "Linux">
+<p>1. 将NyaBot实例关闭。</p>
+<p>2. 打开您的终端或 SSH 。</p>
+<p>3. 将您的终端转到您存放 NyaBot 可执行文件的路径内。</p>
+<p>4. 执行打包命令，示例如下。</p>
+
+```bash
+tar -zcvf NyaBot.tar.gz config.yaml scripts
+```
+
+
+</TabItem>
+<TabItem value= "MacOS" label= "MacOS">
+<p>1. 将NyaBot实例关闭。</p>
+<p>2. 打开您存放NyaBot可执行文件的文件夹。</p>
+<p>3. 选中config.yaml与scripts文件夹。</p>
+<p>4. 按住 Control 键点按它或使用双指轻点它，然后从快捷键菜单中选取“压缩”</p>
+
+</TabItem>
+<TabItem value= "Android" label= "Android">
+<p>1. 将NyaBot实例关闭。</p>
+<p>2. 打开您的终端或 SSH 。</p>
+<p>3. 将您的终端转到您存放 NyaBot 可执行文件的路径内。</p>
+<p>4. 执行打包命令，示例如下。</p>
+
+```bash
+tar -zcvf NyaBot.tar.gz config.yaml scripts
+```
+
+</TabItem>
+</Tabs>
+
+
+## 在 Docker 容器中安装
+-----
+
+<!-- 还在看 -->
